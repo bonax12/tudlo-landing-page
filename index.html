@@ -1,0 +1,1558 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Tudlo English learning for kids, teens, students and working professionals."
+    />
+    <title>Tudlo — English for every next step</title>
+    <style>
+      :root {
+        --ink: #06265e;
+        --blue: #0754ba;
+        --gold: #ffc400;
+        --sky: #e6f5ff;
+        --mint: #dcf7ea;
+        --lilac: #ece7ff;
+        --peach: #ffe6d7;
+        --paper: #f9fbff;
+        --muted: #61708d;
+        --line: #d8e3f2;
+        --white: #fff;
+        --max: 1180px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.5;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+      .wrap {
+        width: min(var(--max), calc(100% - 40px));
+        margin: auto;
+      }
+      .btn {
+        cursor: pointer;
+        border: 0;
+        border-radius: 999px;
+        padding: 13px 20px;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        transition:
+          0.2s transform,
+          0.2s box-shadow;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-blue {
+        background: var(--blue);
+        color: #fff;
+        box-shadow: 0 9px 18px rgba(7, 84, 186, 0.2);
+      }
+      .btn-white {
+        background: #fff;
+        color: var(--ink);
+        box-shadow: 0 4px 10px rgba(4, 38, 94, 0.08);
+      }
+      .eyebrow {
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--blue);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .eyebrow:before {
+        content: "";
+        height: 2px;
+        width: 24px;
+        background: var(--gold);
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+      .heading {
+        font-size: clamp(2.4rem, 4.8vw, 4.5rem);
+        line-height: 0.98;
+        letter-spacing: -0.07em;
+      }
+      .lead {
+        color: var(--muted);
+        font-size: 1.03rem;
+        max-width: 550px;
+      }
+      header {
+        background: rgba(249, 251, 255, 0.9);
+        backdrop-filter: blur(14px);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(216, 227, 242, 0.8);
+      }
+      .nav {
+        height: 82px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo img {
+        width: 148px;
+        height: 63px;
+        object-fit: contain;
+        display: block;
+      }
+      .nav-links {
+        display: flex;
+        gap: 26px;
+        align-items: center;
+        font-size: 0.88rem;
+        font-weight: 750;
+      }
+      .nav-links a:hover {
+        color: var(--blue);
+      }
+      .nav-links .btn {
+        font-size: 0.86rem;
+        padding: 11px 16px;
+      }
+      .menu {
+        display: none;
+        border: 0;
+        background: none;
+        font-size: 1.6rem;
+        color: var(--ink);
+      }
+      .hero {
+        padding: 62px 0 28px;
+        overflow: hidden;
+      }
+      .hero-top {
+        display: grid;
+        grid-template-columns: 1fr 0.95fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: clamp(3.5rem, 7vw, 6.8rem);
+        line-height: 0.88;
+        letter-spacing: -0.09em;
+        margin: 15px 0 22px;
+      }
+      .hero h1 em {
+        font-family: Georgia, serif;
+        color: var(--blue);
+        font-weight: 600;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+      .hero-copy .tiny {
+        color: var(--muted);
+        font-size: 0.78rem;
+        margin-top: 15px;
+      }
+      .hero-art {
+        height: 475px;
+        position: relative;
+      }
+      .hero-photo {
+        position: absolute;
+        inset: 0;
+        border-radius: 35px;
+        background: var(--lilac);
+        overflow: hidden;
+      }
+      .hero-photo img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      .hero-photo:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          110deg,
+          rgba(7, 84, 186, 0.16),
+          transparent 60%
+        );
+      }
+      .bubble {
+        position: absolute;
+        z-index: 2;
+        background: #fff;
+        border-radius: 15px;
+        padding: 12px 15px;
+        box-shadow: 0 13px 35px rgba(5, 41, 97, 0.15);
+        font-size: 0.76rem;
+        font-weight: 750;
+      }
+      .bubble b {
+        display: block;
+        font-size: 1.08rem;
+        color: var(--blue);
+      }
+      .bubble.one {
+        top: 30px;
+        left: -25px;
+      }
+      .bubble.two {
+        right: -14px;
+        bottom: 35px;
+        background: var(--gold);
+        color: var(--ink);
+      }
+      .bubble.two b {
+        color: var(--ink);
+      }
+      .journey {
+        padding: 37px 0 94px;
+      }
+      .journey-intro {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        align-items: end;
+        margin-bottom: 26px;
+      }
+      .journey-intro p {
+        max-width: 350px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .journey-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .journey-card {
+        min-height: 410px;
+        position: relative;
+        border-radius: 25px;
+        overflow: hidden;
+        isolation: isolate;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .journey-card img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+      .journey-card:after {
+        content: "";
+        inset: 0;
+        position: absolute;
+        z-index: -1;
+        background: linear-gradient(
+          0deg,
+          rgba(4, 28, 76, 0.86),
+          rgba(4, 28, 76, 0.03) 70%
+        );
+      }
+      .journey-card:nth-child(2):after {
+        background: linear-gradient(
+          0deg,
+          rgba(25, 68, 67, 0.87),
+          rgba(25, 68, 67, 0.04) 70%
+        );
+      }
+      .journey-card:nth-child(3):after {
+        background: linear-gradient(
+          0deg,
+          rgba(43, 35, 95, 0.87),
+          rgba(43, 35, 95, 0.04) 70%
+        );
+      }
+      .age {
+        align-self: flex-start;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.94);
+        font-size: 0.7rem;
+        font-weight: 850;
+        color: var(--ink);
+        margin-bottom: auto;
+      }
+      .journey-card h3 {
+        font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+        color: #fff;
+        letter-spacing: -0.05em;
+        line-height: 1.05;
+      }
+      .journey-card p {
+        color: #fff;
+        opacity: 0.88;
+        font-size: 0.86rem;
+        margin: 8px 0 16px;
+      }
+      .journey-card a {
+        font-size: 0.85rem;
+        color: #fff;
+        font-weight: 850;
+      }
+      .journey-card a span {
+        font-size: 1.2em;
+        margin-left: 4px;
+      }
+      .ribbon {
+        margin-top: 15px;
+        border-radius: 18px;
+        background: var(--ink);
+        padding: 15px 24px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        color: #fff;
+        font-size: 0.83rem;
+        font-weight: 700;
+      }
+      .ribbon span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .ribbon b {
+        color: var(--gold);
+        font-size: 1.2rem;
+      }
+      .why {
+        background: #fff;
+        padding: 97px 0;
+      }
+      .why-grid {
+        display: grid;
+        grid-template-columns: 0.87fr 1.13fr;
+        gap: 65px;
+      }
+      .why h2 {
+        margin: 13px 0 18px;
+      }
+      .feature-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+      .feature {
+        border-radius: 18px;
+        padding: 25px;
+        min-height: 190px;
+      }
+      .feature:nth-child(1) {
+        background: var(--sky);
+      }
+      .feature:nth-child(2) {
+        background: var(--peach);
+      }
+      .feature:nth-child(3) {
+        background: var(--mint);
+      }
+      .feature:nth-child(4) {
+        background: var(--lilac);
+      }
+      .feature-icon {
+        font-size: 1.7rem;
+      }
+      .feature h3 {
+        font-size: 1.05rem;
+        letter-spacing: -0.03em;
+        margin: 19px 0 5px;
+      }
+      .feature p {
+        font-size: 0.84rem;
+        color: #4f607c;
+      }
+      .path {
+        padding: 100px 0;
+        background: linear-gradient(180deg, #f4f9ff, #fff);
+      }
+      .path-head {
+        text-align: center;
+        max-width: 650px;
+        margin: 0 auto 46px;
+      }
+      .path-head .eyebrow {
+        justify-content: center;
+      }
+      .path-head .eyebrow:before {
+        display: none;
+      }
+      .path-head h2 {
+        margin: 13px 0;
+      }
+      .path-head .lead {
+        margin: auto;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+      }
+      .step {
+        padding: 0 30px;
+        border-right: 1px solid var(--line);
+        position: relative;
+      }
+      .step:last-child {
+        border: 0;
+      }
+      .step-number {
+        width: 48px;
+        height: 48px;
+        border-radius: 15px;
+        display: grid;
+        place-items: center;
+        background: var(--gold);
+        font-weight: 900;
+        font-size: 0.88rem;
+        margin-bottom: 22px;
+      }
+      .step:nth-child(2) .step-number {
+        background: var(--mint);
+      }
+      .step:nth-child(3) .step-number {
+        background: var(--lilac);
+      }
+      .step h3 {
+        font-size: 1.2rem;
+        letter-spacing: -0.04em;
+      }
+      .step p {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-top: 7px;
+      }
+      .programs {
+        padding: 100px 0;
+        background: var(--ink);
+        color: #fff;
+      }
+      .program-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 35px;
+      }
+      .program-head .eyebrow {
+        color: #96d9ff;
+      }
+      .program-head .lead {
+        color: #c9d8f0;
+      }
+      .program-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .program {
+        border-radius: 20px;
+        padding: 25px;
+        min-height: 245px;
+        display: flex;
+        flex-direction: column;
+      }
+      .program:nth-child(1) {
+        background: var(--gold);
+        color: var(--ink);
+      }
+      .program:nth-child(2) {
+        background: var(--mint);
+        color: var(--ink);
+      }
+      .program:nth-child(3) {
+        background: var(--lilac);
+        color: var(--ink);
+      }
+      .program-label {
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+      .program h3 {
+        font-size: 1.65rem;
+        line-height: 1.03;
+        letter-spacing: -0.055em;
+        margin: 39px 0 9px;
+      }
+      .program p {
+        font-size: 0.87rem;
+      }
+      .program a {
+        margin-top: auto;
+        font-size: 0.85rem;
+        font-weight: 900;
+      }
+      .program a span {
+        font-size: 1.2em;
+        margin-left: 5px;
+      }
+      .stories {
+        padding: 100px 0;
+      }
+      .stories-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 35px;
+        margin-bottom: 34px;
+      }
+      .stories-head h2 {
+        margin-top: 13px;
+      }
+      .stories-head p {
+        max-width: 370px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .carousel-controls {
+        display: flex;
+        gap: 9px;
+        flex: none;
+      }
+      .carousel-btn {
+        width: 43px;
+        height: 43px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+        font-size: 1.25rem;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .carousel-btn:hover {
+        background: var(--blue);
+        border-color: var(--blue);
+        color: #fff;
+      }
+      .stories-grid {
+        display: flex;
+        gap: 17px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding: 2px 1px 12px;
+        scrollbar-width: none;
+      }
+      .stories-grid::-webkit-scrollbar {
+        display: none;
+      }
+      .story {
+        flex: 0 0 calc((100% - 34px) / 3);
+        scroll-snap-align: start;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 30px;
+        min-height: 355px;
+        display: flex;
+        flex-direction: column;
+      }
+      .story:nth-child(3n + 1) {
+        background: #fff;
+      }
+      .story:nth-child(3n + 2) {
+        background: var(--sky);
+      }
+      .story:nth-child(3n) {
+        background: var(--mint);
+      }
+      .quote-mark {
+        font-family: Georgia, serif;
+        font-size: 3rem;
+        line-height: 0.5;
+        color: var(--blue);
+        margin-top: 11px;
+      }
+      .quote {
+        font-size: clamp(1.22rem, 1.9vw, 1.65rem);
+        line-height: 1.28;
+        letter-spacing: -0.045em;
+        margin: 16px 0 28px;
+      }
+      .person {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-size: 0.8rem;
+        margin-top: auto;
+      }
+      .person img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .person b {
+        display: block;
+      }
+      .person span {
+        color: var(--muted);
+      }
+      .person .role {
+        font-size: 0.72rem;
+      }
+      .faq {
+        padding: 92px 0;
+        background: #fff;
+      }
+      .faq-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 70px;
+      }
+      .faq h2 {
+        margin: 13px 0;
+      }
+      .faq-list {
+        border-top: 1px solid var(--line);
+      }
+      details {
+        border-bottom: 1px solid var(--line);
+        padding: 19px 0;
+      }
+      summary {
+        cursor: pointer;
+        list-style: none;
+        font-weight: 820;
+        font-size: 0.94rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary:after {
+        content: "+";
+        font-size: 1.3rem;
+        color: var(--blue);
+        line-height: 0.8;
+      }
+      details[open] summary:after {
+        content: "−";
+      }
+      details p {
+        font-size: 0.87rem;
+        color: var(--muted);
+        margin: 12px 30px 0 0;
+      }
+      .cta {
+        padding: 78px 0;
+      }
+      .cta-box {
+        background: linear-gradient(115deg, var(--blue), #092f83);
+        border-radius: 29px;
+        padding: 55px 7%;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-box:after {
+        content: "✦";
+        position: absolute;
+        right: 7%;
+        top: -45px;
+        font-size: 15rem;
+        color: rgba(255, 255, 255, 0.1);
+      }
+      .cta-box h2 {
+        font-size: clamp(2.3rem, 4.2vw, 3.8rem);
+        letter-spacing: -0.07em;
+        line-height: 1;
+        margin: 12px 0;
+      }
+      .cta-box p {
+        color: #dbe9ff;
+        max-width: 560px;
+      }
+      .cta-box .btn {
+        position: relative;
+        z-index: 1;
+        flex: none;
+      }
+      footer {
+        background: #041b47;
+        color: #cad8ed;
+        padding: 46px 0 24px;
+      }
+      .foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+      }
+      .foot img {
+        width: 145px;
+        height: 60px;
+        object-fit: contain;
+      }
+      .foot-links {
+        display: flex;
+        gap: 18px;
+        font-size: 0.78rem;
+      }
+      .fine {
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        margin-top: 28px;
+        padding-top: 18px;
+        color: #90a8ce;
+        font-size: 0.72rem;
+      }
+      .modal-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        background: rgba(2, 21, 57, 0.64);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .modal-backdrop.show {
+        display: flex;
+      }
+      .modal {
+        width: min(535px, 100%);
+        background: #fff;
+        border-radius: 22px;
+        padding: 30px;
+        position: relative;
+      }
+      .modal-close {
+        position: absolute;
+        right: 15px;
+        top: 12px;
+        border: 0;
+        background: none;
+        font-size: 1.7rem;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .modal h2 {
+        letter-spacing: -0.05em;
+        margin: 10px 25px 4px;
+      }
+      .modal > p {
+        color: var(--muted);
+        font-size: 0.88rem;
+        margin: 0 0 17px;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .field {
+        display: grid;
+        gap: 5px;
+      }
+      .field.full {
+        grid-column: 1/-1;
+      }
+      .field label {
+        font-size: 0.74rem;
+        font-weight: 800;
+      }
+      .field input,
+      .field select {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 11px;
+        background: #fff;
+      }
+      .success {
+        display: none;
+        background: var(--mint);
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 0.84rem;
+        color: #155b3d;
+        margin-top: 12px;
+        font-weight: 750;
+      }
+      @media (max-width: 850px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-links.open {
+          display: flex;
+          position: absolute;
+          top: 81px;
+          left: 0;
+          right: 0;
+          background: #fff;
+          padding: 20px;
+          flex-direction: column;
+          align-items: stretch;
+          border-bottom: 1px solid var(--line);
+        }
+        .menu {
+          display: block;
+        }
+        .hero-top,
+        .why-grid,
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-art {
+          max-width: 600px;
+          width: 100%;
+          height: 430px;
+          margin: auto;
+        }
+        .journey-grid,
+        .program-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .journey-card:last-child,
+        .program:last-child {
+          grid-column: 1/-1;
+        }
+        .journey-card:last-child {
+          min-height: 330px;
+        }
+        .why-grid {
+          gap: 38px;
+        }
+        .steps {
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+        .step {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+          padding: 0 0 23px;
+        }
+        .step:last-child {
+          border: 0;
+          padding-bottom: 0;
+        }
+        .stories-head {
+          display: block;
+        }
+        .stories-head p {
+          margin-top: 14px;
+        }
+        .carousel-controls {
+          margin-top: 18px;
+        }
+        .story {
+          flex-basis: calc((100% - 17px) / 2);
+        }
+        .faq-grid {
+          gap: 30px;
+        }
+        .program-head {
+          display: block;
+        }
+        .program-head .lead {
+          margin-top: 13px;
+        }
+        .cta-box {
+          display: block;
+        }
+        .cta-box .btn {
+          margin-top: 22px;
+        }
+        .hero {
+          padding-top: 45px;
+        }
+      }
+      @media (max-width: 560px) {
+        .wrap {
+          width: min(100% - 28px, var(--max));
+        }
+        .nav {
+          height: 70px;
+        }
+        .logo img {
+          width: 126px;
+          height: 53px;
+        }
+        .hero h1 {
+          font-size: 3.75rem;
+        }
+        .hero-art {
+          height: 340px;
+        }
+        .bubble.one {
+          left: 8px;
+          top: 16px;
+        }
+        .bubble.two {
+          right: 8px;
+          bottom: 16px;
+        }
+        .journey {
+          padding-bottom: 62px;
+        }
+        .journey-intro {
+          display: block;
+        }
+        .journey-intro p {
+          margin-top: 14px;
+        }
+        .journey-grid,
+        .program-grid,
+        .feature-cards {
+          grid-template-columns: 1fr;
+        }
+        .journey-card,
+        .journey-card:last-child {
+          min-height: 330px;
+          grid-column: auto;
+        }
+        .ribbon {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          padding: 16px;
+        }
+        .ribbon span {
+          font-size: 0.73rem;
+        }
+        .why,
+        .path,
+        .programs,
+        .stories,
+        .faq {
+          padding: 70px 0;
+        }
+        .program:last-child {
+          grid-column: auto;
+        }
+        .story {
+          flex-basis: 100%;
+          padding: 27px;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .field.full {
+          grid-column: auto;
+        }
+        .modal {
+          padding: 27px 20px;
+        }
+        .foot {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        .fine {
+          font-size: 0.68rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="wrap nav">
+        <a class="logo" href="#home"
+          ><img src="tudlo_logo.png" alt="Tudlo"
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <a href="#journeys">Your journey</a><a href="#how">How it works</a
+          ><a href="#programs">Programs</a><a href="#faq">FAQ</a
+          ><button class="btn btn-blue js-open">
+            Talk to Tudlo <span>→</span>
+          </button>
+        </div>
+        <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+      </nav>
+    </header>
+    <main id="home">
+      <section class="hero">
+        <div class="wrap hero-top">
+          <div class="hero-copy">
+            <span class="eyebrow">For kids, teens & adults</span>
+            <h1>Learn English.<br /><em>Grow into</em> it.</h1>
+            <p class="lead">
+              Tudlo brings together caring teachers, joyful lessons, and
+              practical English for every age and every new beginning.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-blue js-open">
+                Find your learning path <span>→</span></button
+              ><a class="btn btn-white" href="#journeys">Meet our learners</a>
+            </div>
+            <p class="tiny">
+              ✓ Live online or in person &nbsp;&nbsp; ✓ Small groups and 1:1
+              support
+            </p>
+          </div>
+          <div class="hero-art">
+            <div class="hero-photo">
+              <img
+                src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1100&q=85"
+                alt="Diverse young learners smiling together"
+              />
+            </div>
+            <div class="bubble one">
+              <b>Every voice matters.</b>Every learner belongs here.
+            </div>
+            <div class="bubble two">
+              <b>12,000+ learners</b>one growing community
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="journey" id="journeys">
+        <div class="wrap">
+          <div class="journey-intro">
+            <div>
+              <span class="eyebrow">Choose your journey</span>
+              <h2 class="heading" style="margin-top: 13px">
+                One Tudlo.<br />Three great starts.
+              </h2>
+            </div>
+            <p>
+              We design the right kind of English learning for the moment you’re
+              in—not just the age on your birthday card.
+            </p>
+          </div>
+          <div class="journey-grid">
+            <article class="journey-card">
+              <img
+                src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=85"
+                alt="Young child smiling"
+              /><span class="age">Ages 6–12</span>
+              <h3>Kids discover.</h3>
+              <p>Fun, supportive lessons where curiosity becomes confidence.</p>
+              <a href="#programs">Explore kids English <span>→</span></a>
+            </article>
+            <article class="journey-card">
+              <img
+                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85"
+                alt="Teen learner in class"
+              /><span class="age">Ages 13–18</span>
+              <h3>Teens find their voice.</h3>
+              <p>English for school, friendships, ideas, and bigger futures.</p>
+              <a href="#programs">Explore teen English <span>→</span></a>
+            </article>
+            <article class="journey-card">
+              <img
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85"
+                alt="Working professional meeting"
+              /><span class="age">Adults & professionals</span>
+              <h3>Adults move forward.</h3>
+              <p>
+                Practical English for work, travel, and life-changing
+                conversations.
+              </p>
+              <a href="#programs">Explore adult English <span>→</span></a>
+            </article>
+          </div>
+          <div class="ribbon">
+            <span><b>✦</b> Playful foundations</span
+            ><span><b>✦</b> Bold self-expression</span
+            ><span><b>✦</b> Real-world confidence</span>
+          </div>
+        </div>
+      </section>
+      <section class="why">
+        <div class="wrap why-grid">
+          <div>
+            <span class="eyebrow">More than a lesson</span>
+            <h2 class="heading">
+              English feels better when it feels like you.
+            </h2>
+            <p class="lead">
+              The Tudlo experience balances encouragement and challenge, so
+              learners of every age can make progress without losing their
+              spark.
+            </p>
+          </div>
+          <div class="feature-cards">
+            <article class="feature">
+              <div class="feature-icon">🎈</div>
+              <h3>Learning made joyful</h3>
+              <p>
+                Activities that invite kids and teens to speak up, explore, and
+                enjoy the process.
+              </p>
+            </article>
+            <article class="feature">
+              <div class="feature-icon">🎯</div>
+              <h3>Goals that feel real</h3>
+              <p>
+                From class participation to job interviews, practise the moments
+                that matter.
+              </p>
+            </article>
+            <article class="feature">
+              <div class="feature-icon">🫶</div>
+              <h3>Teachers who notice</h3>
+              <p>
+                Supportive guidance, thoughtful feedback, and a learning plan
+                that sees the person.
+              </p>
+            </article>
+            <article class="feature">
+              <div class="feature-icon">⌁</div>
+              <h3>Flexible around life</h3>
+              <p>
+                Online or in person, one session or a regular routine—choose
+                what helps you thrive.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="path" id="how">
+        <div class="wrap">
+          <div class="path-head">
+            <span class="eyebrow">Simple from the start</span>
+            <h2 class="heading">Your next step is closer than you think.</h2>
+            <p class="lead">
+              We make it easy to find the right fit, whether you’re a parent,
+              student, or a professional ready for more.
+            </p>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <div class="step-number">01</div>
+              <h3>Tell us about your world</h3>
+              <p>
+                Share the learner’s age, goals, schedule, and what confidence
+                would look like for them.
+              </p>
+            </article>
+            <article class="step">
+              <div class="step-number">02</div>
+              <h3>Meet your best-fit path</h3>
+              <p>
+                We’ll recommend a welcoming program, a comfortable level, and a
+                way to learn that works.
+              </p>
+            </article>
+            <article class="step">
+              <div class="step-number">03</div>
+              <h3>Start speaking more</h3>
+              <p>
+                Join a lively class or 1:1 session, build momentum, and
+                celebrate each new win.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="programs" id="programs">
+        <div class="wrap">
+          <div class="program-head">
+            <div>
+              <span class="eyebrow">Made for the moment</span>
+              <h2 class="heading" style="margin-top: 13px">
+                Pick the English<br />that opens your world.
+              </h2>
+            </div>
+            <p class="lead">
+              Start with a program designed for your stage. We can always adjust
+              as goals—and confidence—grow.
+            </p>
+          </div>
+          <div class="program-grid">
+            <article class="program">
+              <span class="program-label">Kids · ages 6–12</span>
+              <h3>Little Voices</h3>
+              <p>
+                Stories, games, speaking, reading, and a safe space to be
+                curious.
+              </p>
+              <a class="js-open" href="#enquire"
+                >Ask about kids classes <span>→</span></a
+              >
+            </article>
+            <article class="program">
+              <span class="program-label">Teens · ages 13–18</span>
+              <h3>Future Ready</h3>
+              <p>
+                English for school success, social confidence, and all the plans
+                ahead.
+              </p>
+              <a class="js-open" href="#enquire"
+                >Ask about teen classes <span>→</span></a
+              >
+            </article>
+            <article class="program">
+              <span class="program-label">Adults & professionals</span>
+              <h3>Everyday Impact</h3>
+              <p>
+                Speak clearly in meetings, travel more freely, and share your
+                ideas with ease.
+              </p>
+              <a class="js-open" href="#enquire"
+                >Ask about adult classes <span>→</span></a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="stories">
+        <div class="wrap">
+          <div class="stories-head">
+            <div>
+              <span class="eyebrow">Learner stories</span>
+              <h2 class="heading">Every voice has<br />a brave beginning.</h2>
+            </div>
+            <p>
+              From first sentences to bigger conversations, Tudlo learners and
+              families share the moments that made a difference.
+            </p>
+          </div>
+          <div class="stories-grid">
+            <article class="story">
+              <span class="eyebrow">A parent’s perspective</span>
+              <div class="quote-mark">“</div>
+              <blockquote class="quote">
+                My daughter now tells me about her day in English—just because
+                she wants to.
+              </blockquote>
+              <div class="person">
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+                  alt="Rachel"
+                />
+                <div>
+                  <b>Rachel M.</b
+                  ><span class="role">Parent of a 9-year-old learner</span>
+                </div>
+              </div>
+            </article>
+            <article class="story">
+              <span class="eyebrow">A teen learner</span>
+              <div class="quote-mark">“</div>
+              <blockquote class="quote">
+                I used to be nervous reading out loud. Now I volunteer first—and
+                I even enjoy it.
+              </blockquote>
+              <div class="person">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+                  alt="Aisha"
+                />
+                <div>
+                  <b>Aisha R.</b><span class="role">Teen English learner</span>
+                </div>
+              </div>
+            </article>
+            <article class="story">
+              <span class="eyebrow">A working professional</span>
+              <div class="quote-mark">“</div>
+              <blockquote class="quote">
+                Tudlo helped me stop translating in my head. I can finally speak
+                up in our regional meetings.
+              </blockquote>
+              <div class="person">
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+                  alt="Marco"
+                />
+                <div>
+                  <b>Marco D.</b><span class="role">Project coordinator</span>
+                </div>
+              </div>
+            </article>
+            <article class="story">
+              <span class="eyebrow">A student’s win</span>
+              <div class="quote-mark">“</div>
+              <blockquote class="quote">
+                My presentations used to feel scary. My tutor helped me practise
+                until I felt ready to stand up and share.
+              </blockquote>
+              <div class="person">
+                <img
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+                  alt="Lia"
+                />
+                <div>
+                  <b>Lia C.</b><span class="role">University student</span>
+                </div>
+              </div>
+            </article>
+            <article class="story">
+              <span class="eyebrow">A family’s routine</span>
+              <div class="quote-mark">“</div>
+              <blockquote class="quote">
+                The flexible schedule made all the difference. Tudlo works
+                around our week instead of adding pressure to it.
+              </blockquote>
+              <div class="person">
+                <img
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80"
+                  alt="Jenny"
+                />
+                <div>
+                  <b>Jenny P.</b
+                  ><span class="role">Parent of two Tudlo learners</span>
+                </div>
+              </div>
+            </article>
+            <article class="story">
+              <span class="eyebrow">A new beginning</span>
+              <div class="quote-mark">“</div>
+              <blockquote class="quote">
+                I joined for travel, but I stayed because I found the confidence
+                to have conversations I had been avoiding for years.
+              </blockquote>
+              <div class="person">
+                <img
+                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
+                  alt="Noel"
+                />
+                <div><b>Noel G.</b><span class="role">Adult learner</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="faq" id="faq">
+        <div class="wrap faq-grid">
+          <div>
+            <span class="eyebrow">Good questions</span>
+            <h2 class="heading">You’re in the right place to start.</h2>
+            <p class="lead">
+              Not sure which path fits? We’ll help you find the one that does.
+            </p>
+          </div>
+          <div class="faq-list">
+            <details open>
+              <summary>How do I choose the right program?</summary>
+              <p>
+                Start with a free consultation. We’ll consider the learner’s
+                age, comfort with English, goals, and schedule before
+                recommending a welcoming next step.
+              </p>
+            </details>
+            <details>
+              <summary>Can parents book classes for their child?</summary>
+              <p>
+                Absolutely. Parents and guardians can book, share learning
+                goals, and receive guidance on the best experience for their
+                child.
+              </p>
+            </details>
+            <details>
+              <summary>Do you offer lessons for teens and adults too?</summary>
+              <p>
+                Yes. Tudlo has age-right programs for teen learners, university
+                students, and working adults—each built around practical goals.
+              </p>
+            </details>
+            <details>
+              <summary>Can I learn online?</summary>
+              <p>
+                Yes. Choose live online lessons or selected in-person options,
+                depending on the program and what works best for your routine.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section class="cta" id="enquire">
+        <div class="wrap cta-box">
+          <div>
+            <span class="eyebrow" style="color: #c7ebff"
+              >Every journey starts somewhere</span
+            >
+            <h2>Let’s find the right<br />English path together.</h2>
+            <p>
+              Tell us who is learning and what they want to do next. We’ll take
+              it from there.
+            </p>
+          </div>
+          <button class="btn btn-white js-open">
+            Talk to a learning advisor <span>→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap foot">
+        <img src="tudlo_logo.png" alt="Tudlo" />
+        <div class="foot-links">
+          <a href="#journeys">Journeys</a><a href="#programs">Programs</a
+          ><a href="#faq">FAQ</a
+          ><a href="mailto:hello@tudlo.example">Contact</a>
+        </div>
+      </div>
+      <div class="wrap fine">
+        © 2026 Tudlo · Learn English. Build confidence. Reach your goals.
+      </div>
+    </footer>
+    <div class="modal-backdrop" id="modal" aria-hidden="true">
+      <section
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button class="modal-close" id="modalClose" aria-label="Close">×</button
+        ><span class="eyebrow">Your Tudlo journey</span>
+        <h2 id="modalTitle">Let’s find a great fit.</h2>
+        <p>
+          Tell us who is learning and what they’re hoping to do with English.
+        </p>
+        <form id="form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Your name</label
+              ><input id="name" required placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="email">Email address</label
+              ><input
+                id="email"
+                required
+                type="email"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div class="field">
+              <label for="learner">Who is learning?</label
+              ><select id="learner" required>
+                <option value="">Choose one</option>
+                <option>Child (ages 6–12)</option>
+                <option>Teen (ages 13–18)</option>
+                <option>University student</option>
+                <option>Working professional / adult</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="format">Preferred format</label
+              ><select id="format">
+                <option>Online</option>
+                <option>In person</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="goal">What would English help with?</label
+              ><input
+                id="goal"
+                placeholder="e.g. speaking more confidently in class"
+              />
+            </div>
+          </div>
+          <button
+            class="btn btn-blue"
+            type="submit"
+            style="width: 100%; margin-top: 18px"
+          >
+            Send my enquiry <span>→</span>
+          </button>
+          <div class="success" id="success">
+            Thank you! A Tudlo learning advisor will be in touch soon.
+          </div>
+        </form>
+      </section>
+    </div>
+    <script>
+      const menu = document.getElementById("menu"),
+        nav = document.getElementById("navLinks"),
+        modal = document.getElementById("modal"),
+        close = document.getElementById("modalClose");
+      menu.addEventListener("click", () => {
+        nav.classList.toggle("open");
+        menu.textContent = nav.classList.contains("open") ? "×" : "☰";
+      });
+      document.querySelectorAll(".nav-links a").forEach((a) =>
+        a.addEventListener("click", () => {
+          nav.classList.remove("open");
+          menu.textContent = "☰";
+        }),
+      );
+      const open = () => {
+          modal.classList.add("show");
+          modal.setAttribute("aria-hidden", "false");
+          setTimeout(() => document.getElementById("name").focus(), 30);
+        },
+        shut = () => {
+          modal.classList.remove("show");
+          modal.setAttribute("aria-hidden", "true");
+        };
+      document.querySelectorAll(".js-open").forEach((x) =>
+        x.addEventListener("click", (e) => {
+          e.preventDefault();
+          open();
+        }),
+      );
+      close.addEventListener("click", shut);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) shut();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") shut();
+      });
+      const carousel = document.querySelector(".stories-grid"),
+        controls = document.createElement("div");
+      controls.className = "carousel-controls";
+      controls.setAttribute("aria-label", "Testimonial controls");
+      controls.innerHTML =
+        '<button class="carousel-btn" type="button" aria-label="Previous testimonials">←</button><button class="carousel-btn" type="button" aria-label="Next testimonials">→</button>';
+      document.querySelector(".stories-head").appendChild(controls);
+      const [previous, next] = controls.querySelectorAll("button");
+      const moveCarousel = (direction) => {
+        const card = carousel.querySelector(".story");
+        carousel.scrollBy({
+          left: direction * (card.offsetWidth + 17),
+          behavior: "smooth",
+        });
+      };
+      previous.addEventListener("click", () => moveCarousel(-1));
+      next.addEventListener("click", () => moveCarousel(1));
+      document.getElementById("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        document.getElementById("success").style.display = "block";
+        const b = e.target.querySelector("button");
+        b.textContent = "Enquiry sent ✓";
+        b.disabled = true;
+      });
+    </script>
+  </body>
+</html>
