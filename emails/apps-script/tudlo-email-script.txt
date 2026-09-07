@@ -1,0 +1,27 @@
+function sendBatchFromCsv() {
+  const TEMPLATE_URL = 'https://bonax12.github.io/tudlo-landing-page/emails/inquiry-reply.html';
+  const CSV_URL      = 'https://bonax12.github.io/tudlo-landing-page/emails/apps-script/clients.csv';
+
+  const template = UrlFetchApp.fetch(TEMPLATE_URL).getContentText();
+  const rows = Utilities.parseCsv(UrlFetchApp.fetch(CSV_URL).getContentText());
+  const head = rows.shift();
+  const iName = head.indexOf('name');
+  const iMail = head.indexOf('email');
+
+  const store = PropertiesService.getScriptProperties();
+
+  rows.forEach(row => {
+    const email = String(row[iMail] || '').trim();
+    if (!email || store.getProperty('sent:' + email)) return;   // skip empty / already sent
+
+    const name = String(row[iName] || 'there').trim() || 'there';
+    const html = template.replace(/\{\{\s*first_name\s*\}\}/g, name);
+
+    GmailApp.sendEmail(email, 'Thanks for reaching out to Tudlo',
+      'Hi ' + name + ', thanks for your interest in Tudlo.',
+      { htmlBody: html, name: 'Tudlo' });
+
+    store.setProperty('sent:' + email, new Date().toISOString());
+    Utilities.sleep(1200);
+  });
+}
