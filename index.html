@@ -27,7 +27,7 @@
           <a href="#programs">Programs</a><a href="#how">How it works</a
           ><a href="#flex">Flexible learning</a><a href="#faq">FAQ</a
           ><button class="btn btn-blue js-open">
-            Book Your Trial Lesson <span>→</span>
+            Book Your Trial Lesson <span class="ico-arrow" aria-hidden="true"></span>
           </button>
         </div>
         <button class="menu" id="menu" aria-label="Open navigation">☰</button>
@@ -51,7 +51,7 @@
             </p>
             <div class="hero-actions">
               <button class="btn btn-blue js-open">
-                Find your learning path <span>→</span></button
+                Find your learning path <span class="ico-arrow" aria-hidden="true"></span></button
               ><a class="btn btn-white" href="#teacher">Meet our tutors</a>
             </div>
           </div>
@@ -98,7 +98,7 @@
               <h3>Kids discover.</h3>
               <p>Fun, supportive lessons where curiosity becomes confidence.</p>
               <a class="js-open" href="#enquire"
-                >Explore Kids English <span>→</span></a
+                >Explore Kids English <span class="ico-arrow" aria-hidden="true"></span></a
               >
             </article>
             <article class="journey-card">
@@ -110,7 +110,7 @@
               <h3>Teens find their voice.</h3>
               <p>English for school, friendships, ideas, and bigger futures.</p>
               <a class="js-open" href="#enquire"
-                >Explore Teen English <span>→</span></a
+                >Explore Teen English <span class="ico-arrow" aria-hidden="true"></span></a
               >
             </article>
             <article class="journey-card">
@@ -125,7 +125,7 @@
                 conversations.
               </p>
               <a class="js-open" href="#enquire"
-                >Explore Adult English <span>→</span></a
+                >Explore Adult English <span class="ico-arrow" aria-hidden="true"></span></a
               >
             </article>
           </div>
@@ -260,7 +260,7 @@
               <span>7 Years of English Teaching Experience</span>
             </div>
             <button class="btn btn-blue js-open">
-              Find your learning path <span>→</span>
+              Find your learning path <span class="ico-arrow" aria-hidden="true"></span>
             </button>
           </div>
         </div>
@@ -276,10 +276,10 @@
                 class="heading heading-split"
                 style="margin-top: 13px; color: #fff"
               >
-                <span>Find the English program</span><span>you need.</span>
+                <span>Find the English</span><span>program you need.</span>
               </h2>
             </div>
-            <p class="lead">
+            <p class="lead lead-narrow">
               Every program is built around real goals and adjusts as your
               confidence grows.
             </p>
@@ -294,7 +294,7 @@
                 with confidence.
               </p>
               <a class="js-open" href="#enquire"
-                >Book General English <span>→</span></a
+                >Book General English <span class="ico-arrow" aria-hidden="true"></span></a
               >
             </article>
             <article class="program">
@@ -307,7 +307,7 @@
                 strong foundation in English through guided speaking practice.
               </p>
               <a class="js-open" href="#enquire"
-                >Book a lesson <span>→</span></a
+                >Book a lesson <span class="ico-arrow" aria-hidden="true"></span></a
               >
             </article>
             <article class="program">
@@ -318,7 +318,7 @@
                 classes based on your level and the outcome you're aiming for.
               </p>
               <a class="js-open" href="#enquire"
-                >Book your program <span>→</span></a
+                >Book your program <span class="ico-arrow" aria-hidden="true"></span></a
               >
             </article>
           </div>
@@ -470,12 +470,12 @@
             </div>
             <div class="flexfit-art">
               <img
-                src="assets/images/julio-lopez-Imz-pn2LMbg-unsplash.jpg"
+                src="assets/images/pexels-katerina-holmes-5905962.jpg"
                 alt="Learner studying flexibly at their own desk"
                 loading="lazy"
               />
               <div class="flexfit-badge">
-                <b>Personal attention.</b>Every learner learns differently.
+                <b>Personal attention</b>Every child learns differently.
               </div>
             </div>
           </div>
@@ -533,7 +533,7 @@
       <section class="cta" id="enquire">
         <div class="wrap cta-box">
           <div>
-            <span class="eyebrow" style="color: #c7ebff"
+            <span class="eyebrow" style="color: var(--white)"
               >Ready when you are</span
             >
             <h2><span>Book your</span><span>trial lesson.</span></h2>
@@ -543,7 +543,7 @@
             </p>
           </div>
           <button class="btn btn-white js-open">
-            Talk to a learning advisor <span>→</span>
+            Talk to a learning advisor <span class="ico-arrow" aria-hidden="true"></span>
           </button>
         </div>
       </section>
@@ -576,16 +576,44 @@
         <p>
           Tell us who is learning and what they're hoping to do with English.
         </p>
-        <form id="form">
+        <form
+          id="form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <!-- Web3Forms: get a free access key at https://web3forms.com
+               (enter the email that should receive submissions, then paste the
+               key below). Free plan = 250 submissions/month. -->
+          <input
+            type="hidden"
+            name="access_key"
+            value="3ed37041-1c24-4b01-abfd-d4f008e1ccec"
+          />
+          <input
+            type="hidden"
+            name="subject"
+            value="New trial lesson request — Tudlo"
+          />
+          <input type="hidden" name="from_name" value="Tudlo Landing Page" />
+          <!-- honeypot: real people never fill this; bots do -->
+          <input
+            type="checkbox"
+            name="botcheck"
+            style="display: none"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
           <div class="form-grid">
             <div class="field">
               <label for="name">Your name</label
-              ><input id="name" required placeholder="Your name" />
+              ><input id="name" name="name" required placeholder="Your name" />
             </div>
             <div class="field">
               <label for="email">Email address</label
               ><input
                 id="email"
+                name="email"
                 required
                 type="email"
                 placeholder="you@example.com"
@@ -593,7 +621,7 @@
             </div>
             <div class="field">
               <label for="learner">Who is learning?</label
-              ><select id="learner" required>
+              ><select id="learner" name="learner" required>
                 <option value="">Choose one</option>
                 <option>Child (ages 6–12)</option>
                 <option>Teen (ages 13–18)</option>
@@ -603,7 +631,7 @@
             </div>
             <div class="field">
               <label for="focus">What would you like to improve?</label
-              ><select id="focus">
+              ><select id="focus" name="focus">
                 <option>General English</option>
                 <option>Conversation &amp; pronunciation</option>
                 <option>Exam preparation (IELTS, Cambridge…)</option>
@@ -615,6 +643,7 @@
               <label for="goal">Your goal in one line</label
               ><input
                 id="goal"
+                name="goal"
                 placeholder="e.g. speaking more confidently at work"
               />
             </div>
@@ -624,9 +653,9 @@
             type="submit"
             style="width: 100%; margin-top: 18px"
           >
-            Send my request <span>→</span>
+            Send my request <span class="ico-arrow" aria-hidden="true"></span>
           </button>
-          <div class="success" id="success">
+          <div class="success" id="success" role="status">
             Thank you! A Tudlo learning advisor will be in touch soon.
           </div>
         </form>
@@ -675,24 +704,97 @@
       controls.className = "carousel-controls";
       controls.setAttribute("aria-label", "Testimonial controls");
       controls.innerHTML =
-        '<button class="carousel-btn" type="button" aria-label="Previous testimonials">←</button><button class="carousel-btn" type="button" aria-label="Next testimonials">→</button>';
-      document.querySelector(".stories-head").appendChild(controls);
+        '<button class="carousel-btn" type="button" aria-label="Previous testimonials"><span class="ico-arrow left" aria-hidden="true"></span></button><button class="carousel-btn" type="button" aria-label="Next testimonials"><span class="ico-arrow" aria-hidden="true"></span></button>';
+      carousel.after(controls);
       const [previous, next] = controls.querySelectorAll("button");
+
+      /* Flank the real cards with an identical clone set on each side so the
+         strip scrolls endlessly either way. We park on the middle (real) set;
+         after a move settles we silently shift the scroll position back onto
+         that middle set whenever it has drifted a full set away — the clone
+         content lines up exactly, so the shift can't be seen and the arrows
+         just keep going round. */
+      const originals = [...carousel.querySelectorAll(".story")];
+      originals.forEach((card) => {
+        const lead = card.cloneNode(true);
+        const trail = card.cloneNode(true);
+        lead.setAttribute("aria-hidden", "true");
+        trail.setAttribute("aria-hidden", "true");
+        carousel.insertBefore(lead, originals[0]);
+        carousel.appendChild(trail);
+      });
+      // one full set = distance from the strip's start to the first real card
+      const setWidth = () => originals[0].offsetLeft;
+      const stepSize = () => originals[0].offsetWidth + 17;
+      const recenter = () => {
+        const w = setWidth();
+        // 1px tolerance so sub-pixel rounding at the park point can't ping-pong
+        if (carousel.scrollLeft >= 2 * w - 1) carousel.scrollLeft -= w;
+        else if (carousel.scrollLeft < w - 1) carousel.scrollLeft += w;
+      };
+      const park = () => {
+        carousel.scrollLeft = setWidth();
+      };
+      park();
+      window.addEventListener("load", park);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(park);
+      window.addEventListener("resize", park);
+
+      /* self-run the scroll animation (don't rely on native smooth scrolling)
+         so recenter() always fires exactly when the glide ends */
+      let scrollRaf;
+      const glideTo = (target, ms = 320) => {
+        cancelAnimationFrame(scrollRaf);
+        const from = carousel.scrollLeft;
+        const dist = target - from;
+        if (Math.abs(dist) < 1) return recenter();
+        const t0 = performance.now();
+        const tick = (now) => {
+          const p = Math.min(1, (now - t0) / ms);
+          const eased = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          carousel.scrollLeft = from + dist * eased;
+          if (p < 1) scrollRaf = requestAnimationFrame(tick);
+          else recenter();
+        };
+        scrollRaf = requestAnimationFrame(tick);
+      };
       const moveCarousel = (direction) => {
-        const card = carousel.querySelector(".story");
-        carousel.scrollBy({
-          left: direction * (card.offsetWidth + 17),
-          behavior: "smooth",
-        });
+        recenter();
+        glideTo(carousel.scrollLeft + direction * stepSize());
       };
       previous.addEventListener("click", () => moveCarousel(-1));
       next.addEventListener("click", () => moveCarousel(1));
-      document.getElementById("form").addEventListener("submit", (e) => {
+      const bookingForm = document.getElementById("form"),
+        formMsg = document.getElementById("success");
+      bookingForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-        document.getElementById("success").style.display = "block";
-        const b = e.target.querySelector("button");
-        b.textContent = "Request sent ✓";
-        b.disabled = true;
+        const btn = bookingForm.querySelector('button[type="submit"]');
+        const btnHtml = btn.innerHTML;
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+        formMsg.style.display = "none";
+        formMsg.classList.remove("is-error");
+        try {
+          const res = await fetch(bookingForm.action, {
+            method: "POST",
+            headers: { Accept: "application/json" },
+            body: new FormData(bookingForm),
+          });
+          const data = await res.json();
+          if (!data.success) throw new Error(data.message || "Request failed");
+          formMsg.textContent =
+            "Thank you! A Tudlo learning advisor will be in touch soon.";
+          formMsg.style.display = "block";
+          bookingForm.reset();
+          btn.textContent = "Request sent ✓";
+        } catch (err) {
+          formMsg.textContent =
+            "Sorry, that didn't send. Please try again, or email hello@tudlo.example.";
+          formMsg.classList.add("is-error");
+          formMsg.style.display = "block";
+          btn.disabled = false;
+          btn.innerHTML = btnHtml;
+        }
       });
 
       /* Fit multi-line section titles: keep them as large & bold as possible
@@ -712,7 +814,7 @@
             });
             if (!widest) return;
             const avail = el.clientWidth;
-            let size = (max * avail) / widest * 0.97;
+            let size = ((max * avail) / widest) * 0.97;
             size = Math.max(min, Math.min(max, size));
             el.style.fontSize = size.toFixed(2) + "px";
           });

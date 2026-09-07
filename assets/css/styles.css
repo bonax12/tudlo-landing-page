@@ -153,6 +153,28 @@ h3 {
   font-size: 1.02rem;
   max-width: 540px;
 }
+/* narrower variant of .lead — used in the Programs section header */
+.lead-narrow {
+  max-width: 340px;
+}
+
+/* shared arrow icon (Material Symbols arrow_right_alt, inlined so it works on
+   file:// too) — painted with currentColor via CSS mask */
+.ico-arrow {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  flex: none;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%20-960%20960%20960'%3E%3Cpath%20fill='%23000'%20d='M646-440H200q-17%200-28.5-11.5T160-480q0-17%2011.5-28.5T200-520h446L532-634q-12-12-11.5-28t11.5-28q12-12%2028.5-12.5T589-691l183%20183q6%206%208.5%2013t2.5%2015q0%208-2.5%2015t-8.5%2013L589-269q-12%2012-28.5%2011.5T532-270q-11-12-11.5-28t11.5-28l114-114Z'/%3E%3C/svg%3E")
+    no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%20-960%20960%20960'%3E%3Cpath%20fill='%23000'%20d='M646-440H200q-17%200-28.5-11.5T160-480q0-17%2011.5-28.5T200-520h446L532-634q-12-12-11.5-28t11.5-28q12-12%2028.5-12.5T589-691l183%20183q6%206%208.5%2013t2.5%2015q0%208-2.5%2015t-8.5%2013L589-269q-12%2012-28.5%2011.5T532-270q-11-12-11.5-28t11.5-28l114-114Z'/%3E%3C/svg%3E")
+    no-repeat center / contain;
+  vertical-align: -0.22em;
+}
+.ico-arrow.left {
+  transform: rotate(180deg);
+}
 
 /* ---------- header ---------- */
 header {
@@ -265,7 +287,7 @@ header {
   box-shadow: 0 14px 36px rgba(5, 41, 97, 0.16);
   font-size: 0.76rem;
   font-weight: 600;
-  max-width: 210px;
+  max-width: 220px;
 }
 .bubble b {
   display: block;
@@ -300,9 +322,9 @@ header {
   margin-bottom: 26px;
 }
 .journey-intro p {
-  max-width: 340px;
+  max-width: 360px;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1.02rem;
 }
 .journey-grid {
   display: grid;
@@ -371,9 +393,33 @@ header {
   color: #fff;
   font-weight: 700;
   font-family: Poppins, Inter, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  transition: 0.25s transform;
 }
 .journey-card a span {
   margin-left: 4px;
+  transition: 0.25s transform;
+}
+.journey-card a:hover {
+  transform: translateY(-3px);
+}
+.journey-card a:hover span {
+  animation: float-arrow 0.9s ease-in-out infinite;
+}
+@keyframes float-arrow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(4px, -4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey-card a:hover span {
+    animation: none;
+  }
 }
 .ribbon {
   margin-top: 16px;
@@ -413,6 +459,13 @@ header {
   border-radius: 18px;
   padding: 26px;
   min-height: 190px;
+  transition:
+    0.25s transform,
+    0.25s box-shadow;
+}
+.feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(4, 38, 94, 0.12);
 }
 .feature:nth-child(1) {
   background: var(--peach);
@@ -428,6 +481,25 @@ header {
 }
 .feature-icon {
   font-size: 1.6rem;
+  display: inline-block;
+  transition: 0.25s transform;
+}
+.feature:hover .feature-icon {
+  animation: float-icon 1.6s ease-in-out infinite;
+}
+@keyframes float-icon {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-6deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .feature:hover .feature-icon {
+    animation: none;
+  }
 }
 .feature h3 {
   font-size: 1.02rem;
@@ -588,7 +660,7 @@ header {
   margin-bottom: 34px;
 }
 .program-head .eyebrow {
-  color: #8fd0ff;
+  color: var(--white);
 }
 .program-head .lead {
   color: #c9d8f0;
@@ -640,9 +712,24 @@ header {
   font-size: 0.84rem;
   font-weight: 800;
   font-family: Poppins, Inter, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  transition: 0.25s transform;
 }
 .program a span {
   margin-left: 5px;
+  transition: 0.25s transform;
+}
+.program a:hover {
+  transform: translateY(-3px);
+}
+.program a:hover span {
+  animation: float-arrow 0.9s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .program a:hover span {
+    animation: none;
+  }
 }
 
 /* ---------- stories ---------- */
@@ -662,12 +749,14 @@ header {
 .stories-head p {
   max-width: 360px;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1.02rem;
 }
 .carousel-controls {
   display: flex;
   gap: 9px;
   flex: none;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 .carousel-btn {
   width: 43px;
@@ -679,6 +768,12 @@ header {
   font-size: 1.2rem;
   cursor: pointer;
   transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-btn .ico-arrow {
+  vertical-align: 0;
 }
 .carousel-btn:hover {
   background: var(--blue);
@@ -689,8 +784,6 @@ header {
   display: flex;
   gap: 17px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
   padding: 2px 1px 12px;
   scrollbar-width: none;
 }
@@ -699,7 +792,6 @@ header {
 }
 .story {
   flex: 0 0 calc((100% - 34px) / 3);
-  scroll-snap-align: start;
   border: 1px solid var(--line);
   border-radius: 22px;
   padding: 30px;
@@ -769,10 +861,10 @@ header {
   overflow: hidden;
 }
 .flexfit-box .eyebrow {
-  color: #bfe0ff;
+  color: var(--white);
 }
 .flexfit-box .eyebrow:before {
-  background: #fff;
+  background: var(--gold);
 }
 .flexfit-box h2 {
   margin: 14px 0 16px;
@@ -783,9 +875,7 @@ header {
 }
 .flexfit-art {
   position: relative;
-  border-radius: 22px;
-  overflow: hidden;
-  min-height: 300px;
+  height: 470px;
 }
 .flexfit-art img {
   position: absolute;
@@ -793,24 +883,30 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* % keeps the crop proportional as the frame resizes (responsive by nature);
+     ~65% keeps the child + laptop in view instead of the empty left wall */
+  object-position: 65% center;
+  border-radius: 32px;
 }
 .flexfit-badge {
   position: absolute;
-  right: 16px;
+  right: -32px;
   bottom: 16px;
   background: var(--gold);
   color: var(--ink);
-  border-radius: 13px;
-  padding: 11px 15px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  max-width: 200px;
-  box-shadow: 0 12px 30px rgba(4, 24, 66, 0.28);
+  border-radius: 18px;
+  padding: 18px 22px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+  max-width: 250px;
+  box-shadow: 0 18px 38px rgba(4, 24, 66, 0.32);
 }
 .flexfit-badge b {
   display: block;
   font-family: Poppins, Inter, sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.08rem;
+  margin-bottom: 3px;
 }
 
 /* ---------- faq ---------- */
@@ -863,7 +959,7 @@ details p {
 
 /* ---------- cta ---------- */
 .cta {
-  padding: 20px 0 84px;
+  padding: 84px 0;
 }
 .cta-box {
   background: linear-gradient(115deg, var(--blue), #092f83);
@@ -997,6 +1093,7 @@ footer {
 .field {
   display: grid;
   gap: 5px;
+  min-width: 0;
 }
 .field.full {
   grid-column: 1/-1;
@@ -1007,6 +1104,8 @@ footer {
 }
 .field input,
 .field select {
+  width: 100%;
+  min-width: 0;
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 11px;
@@ -1021,6 +1120,10 @@ footer {
   color: #155b3d;
   margin-top: 12px;
   font-weight: 600;
+}
+.success.is-error {
+  background: #fde7e7;
+  color: #a12626;
 }
 
 /* ---------- responsive ---------- */
@@ -1056,6 +1159,12 @@ footer {
     height: 420px;
     margin: auto;
   }
+  .flexfit-art {
+    height: 420px;
+  }
+  .flexfit-art img {
+    object-position: 60% center;
+  }
   .journey-grid,
   .program-grid {
     grid-template-columns: 1fr 1fr;
@@ -1080,13 +1189,16 @@ footer {
     border: 0;
     padding-bottom: 0;
   }
+  .journey-intro,
   .stories-head,
   .program-head {
     display: block;
   }
+  .journey-intro p,
   .stories-head p,
   .program-head .lead {
     margin-top: 14px;
+    max-width: none;
   }
   .carousel-controls {
     margin-top: 18px;
@@ -1114,8 +1226,12 @@ footer {
   .hero {
     padding-top: 42px;
   }
-  .hero-art {
+  .hero-art,
+  .flexfit-art {
     height: 340px;
+  }
+  .flexfit-art img {
+    object-position: 55% center;
   }
   .bubble.one {
     left: 6px;
