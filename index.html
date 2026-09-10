@@ -556,11 +556,25 @@
         <div class="foot-links">
           <a href="#programs">Programs</a><a href="#how">How it works</a
           ><a href="#flex">Flexible learning</a><a href="#faq">FAQ</a
-          ><a href="mailto:hello@tudlo.example">Contact</a>
+          ><a href="privacy-policy.html">Privacy Policy</a
+          ><a href="terms-and-conditions.html">Terms &amp; Conditions</a
+          ><a href="cookies-policy.html">Cookies Policy</a
+          ><a href="refund-policy.html">Refund Policy</a
+          ><a href="mailto:support.tudlo@gmail.com">Contact</a>
         </div>
       </div>
       <div class="wrap fine">
-        © 2026 Tudlo · Learn English. Build confidence. Reach your goals.
+        <p>© 2026 Tudlo · Learn English. Build confidence. Reach your goals.</p>
+        <p>
+          Tudlo is an independent online English tutoring service operated by
+          <mark class="todo">[owner full legal name]</mark>,
+          <mark class="todo">[city, country]</mark>.
+          <mark class="todo"
+            >[Business registration no. — add once registered.]</mark
+          >
+          Contact:
+          <a href="mailto:support.tudlo@gmail.com">support.tudlo@gmail.com</a>.
+        </p>
       </div>
     </footer>
 
@@ -649,6 +663,28 @@
               />
             </div>
           </div>
+          <label class="consent">
+            <input
+              type="checkbox"
+              name="consent"
+              value="Agreed to the Privacy Policy and Terms & Conditions"
+              required
+            />
+            <span
+              >I have read and agree to the
+              <a href="privacy-policy.html" target="_blank" rel="noopener"
+                >Privacy Policy</a
+              >
+              and
+              <a
+                href="terms-and-conditions.html"
+                target="_blank"
+                rel="noopener"
+                >Terms &amp; Conditions</a
+              >. If the learner is under 18, I am their parent or legal guardian
+              and I consent on their behalf.</span
+            >
+          </label>
           <button
             class="btn btn-blue"
             type="submit"
@@ -790,7 +826,7 @@
           btn.textContent = "Request sent ✓";
         } catch (err) {
           formMsg.textContent =
-            "Sorry, that didn't send. Please try again, or email hello@tudlo.example.";
+            "Sorry, that didn't send. Please try again, or email support.tudlo@gmail.com.";
           formMsg.classList.add("is-error");
           formMsg.style.display = "block";
           btn.disabled = false;
